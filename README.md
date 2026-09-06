@@ -2,7 +2,7 @@
 
 Desktop Vulcan: language runner + GTK IDE. **Not** the ESP32 watch firmware OR the ai both of which are tangentally related and dependant on this
 
-Watch OS: https://github.com/sera5m/OIRIA_OS_espIDF
+Watch OS **requires** this repo: https://github.com/sera5m/OIRIA_OS_espIDF (`third_party/vulcan-lang` submodule). Firmware VM is `os_code/core/rs_vm` in that tree — same language, C on device.
 Package index: https://github.com/sera5m/oiria-index
 
 ## Pieces
@@ -39,7 +39,6 @@ py -3 vulcan_run.py examples\sin_demo.vul
 ```
 
 IDE: MSYS2 UCRT64 GTK4 + PyGObject. GDK uses Win32 (untested)
-
 
 ## Tags
 
