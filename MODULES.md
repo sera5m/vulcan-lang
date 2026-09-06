@@ -1,13 +1,28 @@
-# Module graph
+# What this repo is
+
+**vulcan-lang is BASE.** Not an IDE. Not “the watch.”
+
+Like Java: this tree is the language + bytecode + parser + runtime *libraries*.
+Both products link it.
 
 ```
-vulcan-lang BASE
-  C++ VM core     THE interpreter (same as watch)
-  cpp_vm/         desktop host + rsvm CLI
-  vulcan_run.py   launcher / fallback only
+vulcan-lang                    BASE  (this repo)
+  C++ libs: parse, bytecode, eval rules, opcodes, LUT
+  cpp_vm/ ← shared core (+ desktop host bits)
 
-     +-- vulcan-ide     starts rsvm (Python may wrap it)
-     `-- OIRIA watch    same C++ core, ESP host hooks
+        | links BASE
+        v
+vulcan-ide                     DESKTOP PRODUCT
+  editor + VM backend
+  user runs Vulcan on Linux/Windows
+  like a C# IDE sitting on the CLR
+
+        | links BASE
+        v
+OIRIA watch VM                 DEVICE PRODUCT
+  another VM implementation
+  local ESP host (GPIO, LCD, UART)
+  same bytecode/parse/rules from BASE
 ```
 
-Python is not the language backend.
+Python scripts here are glue. They are not BASE.
