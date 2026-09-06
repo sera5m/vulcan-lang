@@ -1,4 +1,4 @@
-i32 x = 3;
-i32 y;
-x * 2 + 1 = y;
-print(y);
+print(1 + 2 * 3);
+i32 x = 4;
+print(x * x);
+print("ok");
