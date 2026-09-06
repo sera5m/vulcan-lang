@@ -1,6 +1,6 @@
 # vulcan-lang
 
-Desktop Vulcan: language runner + GTK IDE. **Not** the ESP32 watch firmware.
+Desktop Vulcan: language runner + GTK IDE. **Not** the ESP32 watch firmware OR the ai both of which are tangentally related and dependant on this
 
 Watch OS: https://github.com/sera5m/OIRIA_OS_espIDF
 Package index: https://github.com/sera5m/oiria-index
@@ -29,7 +29,7 @@ python3 -c "from vulcan_run import run_source; print(run_source('print(sin(90));
 sudo pacman -S python python-gobject gtk4 python-pyserial python-matplotlib
 python3 vulcan_ide.py examples/sig_gen.vul
 ```
-
+(only tested on arch linux/wayland (endeavoros titan)
 ## Windows
 
 Interpreter:
@@ -38,7 +38,8 @@ Interpreter:
 py -3 vulcan_run.py examples\sin_demo.vul
 ```
 
-IDE: MSYS2 UCRT64 GTK4 + PyGObject. GDK uses Win32 (no Wayland).
+IDE: MSYS2 UCRT64 GTK4 + PyGObject. GDK uses Win32 (untested)
+
 
 ## Tags
 
