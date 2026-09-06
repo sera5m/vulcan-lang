@@ -1,13 +1,17 @@
-# BASE (this repo)
+# Vulcan BASE standard
 
-Shared C++:
-- parse `.vul`
-- bytecode / `.bvul`
-- opcodes, slots, call/return
-- environment rules (what a fn is, what sin means)
+Backend is the C++ VM (`rs_vm`) on watch and desktop. Python `vulcan_run.py` is the desktop reference for the same language.
+
+## Must
+
+- `.vul` → bytecode (`RSV2`) via `rsvm_compile` / `rsvm_eval`
+- LUT `sin` `cos` `tan` `sin_amp` (degrees, wrap) as **C-style** `sin(90)` and as `in[]` calls
+- `include "rel.vul";` / `import`
+- Arrays: `arr_new(n)` / `arr_new(d0,d1)` and C-style `i32 a[2][3]` (row-major, max 4 dims)
+- Index `a[i]` / `a[i,j]`
+- `@memory_hard` on a variable: persist array on disk (desktop) / property bit on watch
+- `native("strlen", s)` / `py("math.sqrt", x)` / `ccall` (desktop); watch needs `host.native_call`
 - `@latex_internal` rewrite
+- Parse errors carry **line** (C++ `rsvm_parse_err_t`; Python `RunError.line`)
 
-Not BASE:
-- GTK editor (vulcan-ide)
-- ESP GPIO/LCD (watch host)
-- Python fallback runner
+Image header magic `RSV2` — see BYTECODE.md.
