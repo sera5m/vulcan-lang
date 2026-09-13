@@ -11,6 +11,7 @@ Backend is the C++ VM (`rs_vm`) on watch and desktop. Python `vulcan_run.py` is 
 - Index `a[i]` / `a[i,j]`
 - `@memory_hard` on a variable: persist array on disk (desktop) / property bit on watch
 - `native("strlen", s)` / `py("math.sqrt", x)` / `ccall` (desktop); watch needs `host.native_call`
+- `native_seq(native("wave", …), native("delay", ms), …)` — trapdoor: interned nid array walked in C (one UART blob, not N source translates). Runtime form: packed `i32` array stride 7 (`nid, nargs, a0..a4`)
 - `@latex_internal` rewrite
 - Parse errors carry **line** (C++ `rsvm_parse_err_t`; Python `RunError.line`)
 

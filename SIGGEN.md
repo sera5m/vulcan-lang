@@ -29,7 +29,11 @@ native("wave_freq", hz)
 native("wave_duty", pct)
 native("sweep", f0, f1, ms)
 native("adc", pin)                         // millivolts
+native_seq(native("wave", …), native("delay", ms), native("wave_stop"))
 ```
+
+`native_seq` packs those into one nid array (`OP_NATIVE_SEQ`). Tyrant sends
+**one** `NSQ1` blob, not N `native("wave",…);` source frames.
 
 Examples: `os_code/core/rs_vm/examples/wave.vul`
 

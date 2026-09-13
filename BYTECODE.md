@@ -21,8 +21,8 @@ The machine is a **stack VM** with a fixed slot file (locals), a tiny heap for a
 | Unit | class + methods, GC objects | one image, slots + small heap |
 | Bytecode | JVMS / CIL, huge spec | ~100 opcodes, MCU-sized |
 | Types | objects, generics | i32/f32/bool/str/arr/struct |
-| Runtime | JVM / CLR, JIT, threads | interpreter; trapdoor loops are C `for` inside the VM |
-| Native | JNI / P/Invoke | `native()` host callback |
+| Runtime | JVM / CLR, JIT, threads | interpreter; trapdoor loops **and** `native_seq` are C `for` inside the VM |
+| Native | JNI / P/Invoke | `native()` host callback; `native_seq` is a packed nid array (`OP_NATIVE_SEQ` 0xF2), not N JNI hops |
 | Verify | bytecode verifier | step limit + type tags on values |
 
 Same **idea** as Java (compile once, interpret/run everywhere). Not compatible with `javac` or `dotnet`.

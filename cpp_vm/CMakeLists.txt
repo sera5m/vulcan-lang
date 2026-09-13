@@ -11,6 +11,7 @@ else()
 endif()
 add_executable(rsvm rsvm_cli.cpp rsvm_host_desktop.cpp
   ${VM}/vm/rs_vm.cpp ${VM}/vm/rs_vm_parse.cpp ${VM}/vm/rs_vm_latex.c
+  ${VM}/vm/rs_vm_nseq.cpp
   ${VM}/vm_modules/vm_mdl_property/vm_mdl_property.cpp
   ${VM}/vm_modules/vm_mdl_immut/vm_mdl_immut.cpp
   ${VM}/vm_modules/vm_mdl_thread/vm_mdl_thread.cpp
